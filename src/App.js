@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./header/header";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Tech from "./tech/techs";
+import TodoMain from "./todo/todoMain";
 
-export default App;
+const app = () => (
+  <>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/todo" component={TodoMain}></Route>
+        <Route path="/tech" component={Tech}></Route>
+        <Redirect from="*" to="/todo"></Redirect>
+      </Switch>
+    </Router>
+  </>
+);
+
+export default app;
