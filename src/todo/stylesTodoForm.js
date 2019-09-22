@@ -8,6 +8,7 @@ export const Grid = styled.div`
 `;
 
 export const TodoForm = styled.div`
+
   margin: 50px 0px;
   color: white;
   text-align: left;
@@ -18,6 +19,7 @@ export const TodoForm = styled.div`
 export const TodoList = styled.div`
   /* background: green; */
   display: flex;
+  justify-content: center;
   align-items: center;
   min-height: 100px;
   text-align: left;

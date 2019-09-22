@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Description, Date } from "./stylesTodoList";
 import { Button } from "./stylesTodoForm";
+import axios from 'axios'
 
 const TodoList = props => {
   const formatDate = (date, separator) => {
@@ -9,15 +10,18 @@ const TodoList = props => {
   }
   let separator = "T";
 
+  let deleteTodo = async () => {
+    let idDeleted = props.id
+    const res = await axios.delete(`http://localhost:3001/api/todos/${idDeleted}`);
+  }
+
   return (
     <>
       <Grid>
         <Description>{props.description}
         <Date>{formatDate(props.date, separator)}</Date>
         </Description>
-        <Button color="#81ecec">+</Button>
-        <Button color="#ff7675">x</Button>
-        <Button color="#FFC312">-</Button>
+        <Button onClick={deleteTodo} color="#ff7675">x</Button>
       </Grid>
       </>
   );
